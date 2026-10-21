@@ -19,7 +19,7 @@ function draw() {
   background(0);
   noStroke();
 
-  // update physics
+  // update position and velocity physics
   for (let i = 0; i < balls.length; i++) {
     balls[i].mouseRepel();
     balls[i].update();
@@ -31,13 +31,6 @@ function draw() {
   for (let ball of balls) {
     ball.drawGlowingBall();
   }
-}
-
-function getRandomColor() {
-  colorMode(HSB, 360, 100, 100);
-  let col = color(random(360), random(80, 100), random(80, 100));
-  colorMode(RGB, 255);
-  return color(red(col), green(col), blue(col));
 }
 
 class Ball {
@@ -128,6 +121,7 @@ class Ball {
   }
 } // class Ball
 
+// helper to calculate physics collision between 2 balls
 function collideBalls(b1, b2) {
   let delta = p5.Vector.sub(b2.pos, b1.pos);
   let dist = delta.mag();
@@ -162,6 +156,7 @@ function collideBalls(b1, b2) {
   }
 }
 
+// helper to make a new ball instance
 function makeBall() {
   let minR = max(min(width, height) * minRadiusFactor, 10);
   let maxR = max(min(width, height) * maxRadiusFactor, 25);
@@ -171,4 +166,12 @@ function makeBall() {
   let y = random(r, height - r);
 
   return new Ball(x, y, r);
+}
+
+// helper to get random color
+function getRandomColor() {
+  colorMode(HSB, 360, 100, 100);
+  let col = color(random(360), random(80, 100), random(80, 100));
+  colorMode(RGB, 255);
+  return color(red(col), green(col), blue(col));
 }
