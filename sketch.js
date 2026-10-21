@@ -66,6 +66,9 @@ class Ball {
   }
 
   update() {
+    // slowly decay velocity a bit just to simulate drag
+    this.vel.mult(0.998);
+
     // Update position
     this.pos.add(this.vel);
     let bounce = false;
@@ -151,6 +154,10 @@ function collideBalls(b1, b2) {
       b2.vel.add(p5.Vector.mult(impulseVector, b1.mass));
       b1.col = getRandomColor();
       b2.col = getRandomColor();
+      // swap their colors instead just for fun?
+      // let col = b1.col;
+      // b1.col = b2.col;
+      // b2.col = col;
     }
   }
 }
