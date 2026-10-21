@@ -106,7 +106,7 @@ class Ball {
       let currentDiameter = this.r * 2 * map(progress, 0, 1, 2.0, 0.1);
 
       let mixedColor = lerpColor(this.col, color(255), progress);
-      let alphaValue = map(progress, 0, 1, 5, 200);
+      let alphaValue = map(progress, 0, 1, 5, 120);
 
       // create rippling clowing effect with sin
       let wave = map(
