@@ -126,7 +126,7 @@ class Ball {
       ellipse(this.pos.x, this.pos.y, currentDiameter);
     }
   }
-}
+} // class Ball
 
 function collideBalls(b1, b2) {
   let delta = p5.Vector.sub(b2.pos, b1.pos);
