@@ -110,7 +110,7 @@ class Ball {
 
       // create rippling clowing effect with sin
       let wave = map(
-        sin(frameCount * 0.1 + progress * TWO_PI),
+        sin(frameCount * 0.15 + progress * TWO_PI),
         -1,
         1,
         0.3,
