@@ -55,7 +55,7 @@ class Ball {
     let dist = dir.mag(); // distance away;
 
     // harddcode a larger radius here so it's actually noticeable
-    let interactionRadius = 150;
+    let interactionRadius = 200;
     if (dist < interactionRadius && dist > 0) {
       dir.normalize(); // unit dir
       let pushForce = map(dist, 0, interactionRadius, 3, 0);
